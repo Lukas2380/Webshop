@@ -14,7 +14,7 @@ $i = 0;
         echo '<div class="card m-2">';
         echo "<div class='product-image parent'>";
         echo "<img src='img/$id.jpg' alt='$name' class='img-fluid product-image'>";
-        echo "<img src='img/jigsaw-small.svg' alt='Jigsaw overlay' class='overlay'>";
+        echo "<img src='img/jigsaw-Small.svg' alt='Jigsaw overlay' class='overlay'>";
         echo "</div>";
         echo '<div class="card-body">';
         echo '<h5 class="card-title">' . $name . '</h5>';

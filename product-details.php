@@ -42,7 +42,7 @@ session_start();
                 <!-- Display the product image -->
                 <div class='product-image'>
                     <img src='img/<?php echo $product_id; ?>.jpg' alt='<?php echo $product['name']; ?>' class='img-fluid'>
-                    <img id="jigsaw-image" src='img/jigsaw-small.svg' alt='Jigsaw overlay' class='overlay'>
+                    <img id="jigsaw-image" src='img/jigsaw-Small.svg' alt='Jigsaw overlay' class='overlay'>
                 </div>
             </div>
             <div class="col-md-6">
