@@ -8,8 +8,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details</title>
-    <script src="javascript\cart.js"></script>
-    <script src="javascript\sizechange.js"></script>
+    <script src="javascript\methods.js"></script>
     <link rel="stylesheet" href="style\product_image.css">
 </head>
 <body>

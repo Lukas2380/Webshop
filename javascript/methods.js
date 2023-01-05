@@ -18,8 +18,6 @@ function add_to_cart(id, size) {
     xmlhttp.send();
 }
 
-
-
 function update_cart_items(){
     var xmlhttp = new XMLHttpRequest();
     
@@ -41,4 +39,38 @@ function update_cart_items(){
             }
         }
     };
+}
+
+function changeSize(size){
+    img = document.getElementById("jigsaw-image");
+    img.src = "img/jigsaw-" + size + ".svg";
+
+    document.getElementById("sizeSpan").innerHTML = size;
+
+    price = document.getElementById("price");
+
+    switch(size){
+        case "Small":
+            price.innerHTML = "19,99€";
+            break;
+        case "Medium":
+            price.innerHTML = "29,99€";
+            break;
+        case "Large":
+            price.innerHTML = "39,99€"
+    }
+}
+
+function loadProducts(q){
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("row").innerHTML = "";
+            document.getElementById("row").innerHTML = this.responseText;
+        }
+    };
+
+    xmlhttp.open("GET", "php/loadProducts.php?q=" + q, true);
+    xmlhttp.send();
 }

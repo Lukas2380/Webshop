@@ -14,8 +14,8 @@ session_start();
 
   <div class="d-grid">
     <div class="container mt-5">
-      <div class="row">
-        <?php include "php/loadProducts.php";?>
+      <div class="row" id="row">
+          <script>loadProducts("")</script>
       </div>
     </div>
   </div>

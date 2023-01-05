@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  <script src="javascript\cart.js"></script>
+  <script src="javascript\methods.js"></script>
   <?php #include "php/update_cart_items.php"?>
 </head>
 <body>
@@ -21,10 +21,10 @@
         </div>
 
         <div class="col-lg-7">
-          <form class="d-flex input-group" role="search">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-            <!-- <button class="btn btn-outline-dark"><i class="bi bi-search"></i></button> --><!-- this button had a type submit -->
-          </form>
+          <div class="d-flex input-group" role="search">
+            <input class="form-control" id="searchInput" type="search" placeholder="Search" aria-label="Search" onkeydown="loadProducts(this.value)">
+            <button class="btn btn-outline-dark" onclick="loadProducts(document.getElementById('searchInput').value)"><i class="bi bi-search"></i></button>
+          </div>
         </div>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,10 +38,7 @@
                 Category
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <?php include "php/display_categories.php" ?>
               </ul>
             </li>
           </ul>
