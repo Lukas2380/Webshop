@@ -9,7 +9,7 @@
     }
 
     // Query to retrieve the products from the database
-    $sql = "SELECT p.name, p.description, c.name as 'category', p.link FROM Products p join Category c on p.category_id = c.id ".$q;
+    $sql = "SELECT p.id as 'id', p.name, p.description, c.name as 'category', p.link FROM Products p join Category c on p.category_id = c.id ".$q;
     $result = mysqli_query($conn, $sql);
 
     // Check if the query was successful and store the products in an array

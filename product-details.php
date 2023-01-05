@@ -32,6 +32,7 @@ session_start();
     $name = $product['name'];
     $price = $product['price'];
     $description = $product['description'];
+    $link = $product['link'];
     ?>
 
     <!-- Add a container to hold the product details -->
@@ -40,7 +41,7 @@ session_start();
             <div class="col-md-6">
                 <!-- Display the product image -->
                 <div class='product-image'>
-                    <img src='img/<?php echo $product_id; ?>.jpg' alt='<?php echo $product['name']; ?>' class='img-fluid'>
+                    <img src='img/<?php echo $link; ?>' alt='<?php echo $product['name']; ?>' class='img-fluid'>
                     <img id="jigsaw-image" src='img/jigsaw-Small.svg' alt='Jigsaw overlay' class='overlay'>
                 </div>
             </div>

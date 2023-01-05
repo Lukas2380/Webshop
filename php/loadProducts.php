@@ -8,6 +8,7 @@ $i = 0;
     if(isset($products))
     {
         foreach ($products as $product) {
+            $id = $product['id'];
             $name = $product['name'];
             $price = $product['price'];
             $description = $product['description'];
