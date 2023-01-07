@@ -47,6 +47,7 @@ function verify_credentials($username, $email, $pw) {
   
     include "php/connectDatabase.php";
 
+    // Get the password from the database to check if they match
     $query = "SELECT password FROM Users WHERE username='$username' AND email='$email'";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_array($result);
