@@ -12,6 +12,11 @@ session_start();
     
   <?php include 'header.php';?>
 
+  <h1 style="font-family: Freestyle Script; font-size: 80px; text-align: center;" class="mt-5">Lukas's best (and only) Puzzleshop</h1>
+
+  <?php include 'php/carousel.php'?>
+
+
   <div class="d-grid">
     <div class="container mt-5">
       <div class="row" id="row">

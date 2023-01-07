@@ -13,50 +13,36 @@
   <?php #include "php/update_cart_items.php"?>
 </head>
 <body>
-  <nav class="navbar navbar-light navbar-expand-lg ps-lg-3 pe-lg-5 ps-2 pe-2" style="background-color: #e3f2fd;">
-        <div class="col-lg-1 me-md-1">
+    <nav class="navbar navbar-light navbar-expand justify-content-around ps-lg-5 pe-lg-5 ps-2 pe-2" style="background-color: #e3f2fd;">
+        <div class="col-lg-2 col-sm-4 me-md-1">
           <a class="navbar-brand" href="index.php">
             <i class="bi bi-puzzle"> Home</i>
           </a>
         </div>
 
-        <div class="col-lg-7">
+        <div class="col-lg-8 col-sm-6">
           <div class="d-flex input-group" role="search">
             <input class="form-control" id="searchInput" type="search" placeholder="Search" aria-label="Search" onkeydown="loadProducts(this.value)">
             <button class="btn btn-outline-dark" onclick="loadProducts(document.getElementById('searchInput').value)"><i class="bi bi-search"></i></button>
           </div>
         </div>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse col-lg-1 justify-content-center" id="navbarSupportedContent">
-          <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Category
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end">
-                <?php include "php/display_categories.php" ?>
-              </ul>
-            </li>
-          </ul>
-        </div>
     
-        <div class="collapse navbar-collapse col-lg-2 justify-content-end" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0">
+        <div class="col-lg-2 col-sm-4" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-lg-0 justify-content-end">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <?php 
                   if(isset($_SESSION['username'])){
-                    echo $_SESSION['username'];
+                    $username =  $_SESSION['username'];
+                    echo "<span class='d-none d-lg-inline'>$username </span>";
+                    echo "<i class='bi bi-person-fill'></i>";
                   }
                   else{
-                    echo "Account";
+                    echo "<span class='d-none d-lg-inline'>Account </span>";
+                    echo "<i class='bi bi-person'></i>";
                   }
                   ?>
-                  <i class="bi bi-person-circle"></i>
+                  
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                   <li><a class="dropdown-item" href="login.php">
@@ -80,8 +66,10 @@
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Cart
+                <span class="d-none d-lg-inline">Cart</span>
                   <?php 
+                  
+
                   if(isset($_SESSION['username'])){
                     echo "<i class='bi bi-cart4 ms-1'><span id='cart-count' class=''>";
                     echo "<script>update_cart_items()</script>";
@@ -103,7 +91,6 @@
             </ul>
         </div>
     </nav>
-
 
     <nav class="navbar navbar-expand d-flex justify-content-evenly" style="background-color: #94caf2;  overflow-x: scroll;">
      <?php include "php/display_categories.php" ?>            

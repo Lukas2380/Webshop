@@ -17,7 +17,7 @@ if(isset($_SESSION['username']))
 
     // Generate the list item
     echo "<li class='d-flex flex-column align-items-center'>";
-    echo "<p class='text-center'>Total Price: $totalPrice</p>";
+    echo "<p class='text-center'>Total Price: $totalPrice<span>€</span></p>";
     echo "<button class='btn btn-success'>Order now</button>";
     echo "</li>";
     echo "<li><hr class='dropdown-divider'></li>";

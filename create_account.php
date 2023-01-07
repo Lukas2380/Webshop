@@ -77,7 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $is_admin = $_POST['admin'];
 
   $pw = password_hash($pw, PASSWORD_DEFAULT);
-  echo $pw;
 
   if($is_admin == "on"){
     $is_admin = 1;
