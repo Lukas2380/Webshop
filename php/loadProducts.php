@@ -10,7 +10,7 @@ $i = 0;
         foreach ($products as $product) {
             $id = $product['id'];
             $name = $product['name'];
-            $price = $product['price'];
+            /* $price = $product['price']; */
             $description = $product['description'];
             $link = $product['link'];
 
@@ -34,9 +34,6 @@ $i = 0;
     }
 ?>
 <style>
-.container {
-    max-width: 2000px;
-}
 .parent {
 overflow: hidden;
 margin: 20px;

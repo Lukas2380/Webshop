@@ -47,22 +47,33 @@ function verify_credentials($username, $email, $pw) {
   
     include "php/connectDatabase.php";
 
-    // Check if the email and password match a row in the database
-    $query = "SELECT * FROM Users WHERE username='$username' AND password='$pw' AND email='$email'";
+    $query = "SELECT password FROM Users WHERE username='$username' AND email='$email'";
     $result = mysqli_query($conn, $query);
-    if (mysqli_num_rows($result) >= 1) {
-        $output = true;
-    } else {
+    $row = mysqli_fetch_array($result);
+    $corrPwd = $row['password'];
+    
+    if(password_verify($pw, $corrPwd)){
+        // Check if the email and password match a row in the database
+        $query = "SELECT * FROM Users WHERE username='$username' AND password='$corrPwd' AND email='$email'";
+        $result = mysqli_query($conn, $query);
+        if (mysqli_num_rows($result) >= 1) {
+            $output = true;
+
+            // Save all session variables
+            $row = mysqli_fetch_array($result);
+            $_SESSION = array();
+            $_SESSION['userid'] = $row[0];
+            $_SESSION['username'] = $row[1];
+            $_SESSION['email'] = $row[3];
+            $_SESSION['is_admin'] = $row[4];
+        } else {
+            $output = false;
+        }
+    }
+    else{
         $output = false;
     }
-
-    // Save all session variables
-    $row = mysqli_fetch_array($result);
-    $_SESSION = array();
-    $_SESSION['userid'] = $row[0];
-    $_SESSION['username'] = $row[1];
-    $_SESSION['email'] = $row[3];
-    $_SESSION['is_admin'] = $row[4];
+    
 
     return $output;
 }

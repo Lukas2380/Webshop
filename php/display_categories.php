@@ -1,14 +1,16 @@
 <?php
-include "connectDatabase.php";
+  include "connectDatabase.php";
 
-// Fetch the categories from the database
-$result = mysqli_query($conn, "SELECT * FROM Category");
+  // Fetch the categories from the database
+  $result = mysqli_query($conn, "SELECT * FROM Category");
 
-// Generate the menu items
-while ($row = mysqli_fetch_assoc($result)) {
-  $name = $row['name'];
-  echo "<li><a class='dropdown-item' href='#' onclick='loadProducts(\"$name\")'>" . $name . "</a></li>";
-}
+  echo "<div><a style='text-decoration: none;' onclick='loadProducts(\"\")'>All</a></div>";  
 
-mysqli_close($conn);
+  // Generate the menu items
+  while ($row = mysqli_fetch_assoc($result)) {
+    $name = $row['name'];
+    echo "<div><a style='text-decoration: none;' onclick='loadProducts(\"$name\")'>" . $name . "</a></div>";
+  }
+
+  mysqli_close($conn);
 ?>

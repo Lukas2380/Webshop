@@ -79,7 +79,7 @@
               </li>
 
               <li class="nav-item dropdown">
-                <a class="nav-link" href="#" role="button">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Cart
                   <?php 
                   if(isset($_SESSION['username'])){
@@ -92,10 +92,25 @@
                   }
                   ?>
                 </a>
+                <ul class="dropdown-menu dropdown-menu-end" style="width: 250px;">
+                <div id="cartItems" style="height: 700px;" class="overflow-auto">
+                  <script>
+                    displayCart();
+                  </script>
+                </div>
+                </ul>
               </li>
             </ul>
         </div>
     </nav>
-</body>
+
+
+    <nav class="navbar navbar-expand d-flex justify-content-evenly" style="background-color: #94caf2;  overflow-x: scroll;">
+     <?php include "php/display_categories.php" ?>            
+    </nav>
+
+  
+  </body>
 </html>
 
+                  

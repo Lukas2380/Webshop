@@ -10,9 +10,6 @@
         $item_id = $_REQUEST["id"];
         $size = $_REQUEST["size"];
 
-
-        echo "hi: $user_id, $item_id, $size";
-
         // query to 
         $sql = "SELECT * FROM Cart where user_id = '$user_id' AND item_id='$item_id' AND size_id='$size';";
 

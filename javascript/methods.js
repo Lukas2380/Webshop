@@ -11,6 +11,7 @@ function add_to_cart(id, size) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             update_cart_items();
+            displayCart();
         }
     };
 
@@ -72,5 +73,18 @@ function loadProducts(q){
     };
 
     xmlhttp.open("GET", "php/loadProducts.php?q=" + q, true);
+    xmlhttp.send();
+}
+
+function displayCart(){
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("cartItems").innerHTML = "";
+            document.getElementById("cartItems").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "php/displayCart.php", true);
     xmlhttp.send();
 }
