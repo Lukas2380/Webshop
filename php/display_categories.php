@@ -4,12 +4,12 @@
   // Fetch the categories from the database
   $result = mysqli_query($conn, "SELECT * FROM Category");
 
-  echo "<div><a style='text-decoration: none; font-weight: bold;'  onclick='loadProducts(\"\")'>All</a></div>";  
+  echo "<div><button class='mx-5 my-2 btn btn-outline-dark' onclick='loadProducts(\"\")'>All</button></div>";    
 
   // Generate the menu items
   while ($row = mysqli_fetch_assoc($result)) {
     $name = $row['name'];
-    echo "<div><a style='text-decoration: none; font-weight: bold;' onclick='loadProducts(\"$name\")'>" . $name . "</a></div>";
+    echo "<div><button class='mx-5 my-2 btn btn-outline-dark' onclick='loadProducts(\"$name\")'>" . $name . "</button></div>";
   }
 
   mysqli_close($conn);

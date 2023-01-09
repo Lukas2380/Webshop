@@ -1,44 +1,43 @@
-<div id="carouselExampleCaptions" class="carousel slide w-50" data-mdb-ride="carousel">
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
   <div class="carousel-indicators">
-    <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="0"
-      class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="1"+
-      aria-label="Slide 2"></button>
-    <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="2"
-      aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
+
   <div class="carousel-inner">
+
     <div class="carousel-item active">
-      <img src="img/1.jpg" class="d-block w-100"
-        alt="Wild Landscape" />
+      <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" style="object-fit: cover; object-position: 50% 85%;" src="img/1.jpg" width="800" height="400"role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect>
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
+
     <div class="carousel-item">
-      <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera" />
+      <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" style="object-fit: cover; object-position: 50% 60%;" src="img/2.jpg" width="800" height="400"role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect>
+
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Some representative placeholder content for the second slide.</p>
       </div>
     </div>
+
     <div class="carousel-item">
-      <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100"
-        alt="Exotic Fruits" />
+    <img class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" style="object-fit: cover; object-position: 50% 40%;" src="img/3.jpg" width="800" height="400"role="img" aria-label="Placeholder: First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect>
+
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        <p>Some representative placeholder content for the third slide.</p>
       </div>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCaptions"
-    data-mdb-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCaptions"
-    data-mdb-slide="next">
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>

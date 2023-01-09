@@ -8,21 +8,21 @@
   <link rel="stylesheet" href="style\itemcart.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="javascript\methods.js"></script>
   <?php #include "php/update_cart_items.php"?>
 </head>
 <body>
-    <nav class="navbar navbar-light navbar-expand justify-content-around ps-lg-5 pe-lg-5 ps-2 pe-2" style="background-color: #e3f2fd;">
+    <nav class="navbar sticky-top navbar-light navbar-expand justify-content-between ps-lg-5 pe-lg-5 ps-2 pe-2" style="background-color: #e3f2fd;">
         <div class="col-lg-2 col-sm-4 me-md-1">
           <a class="navbar-brand" href="index.php">
             <i class="bi bi-puzzle"> Home</i>
           </a>
         </div>
 
-        <div class="col-lg-8 col-sm-6">
+        <div class="col-lg-6 col-sm-6">
           <div class="d-flex input-group" role="search">
-            <input class="form-control" id="searchInput" type="search" placeholder="Search" aria-label="Search" onkeydown="loadProducts(this.value)">
+            <input class="form-control" id="searchInput" type="search" placeholder="Search for name or category" aria-label="Search" onkeydown="loadProducts(this.value)">
             <button class="btn btn-outline-dark" onclick="loadProducts(document.getElementById('searchInput').value)"><i class="bi bi-search"></i></button>
           </div>
         </div>
@@ -30,7 +30,7 @@
         <div class="col-lg-2 col-sm-4" id="navbarSupportedContent">
             <ul class="navbar-nav mb-lg-0 justify-content-end">
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
                   <?php 
                   if(isset($_SESSION['username'])){
                     $username =  $_SESSION['username'];
@@ -65,7 +65,7 @@
               </li>
 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
                 <span class="d-none d-lg-inline">Cart</span>
                   <?php 
                   
@@ -80,7 +80,7 @@
                   }
                   ?>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end" style="width: 250px;">
+                <ul class="dropdown-menu dropdown-menu-end" style="width: 300px;">
                 <div id="cartItems" style="height: 700px;" class="overflow-auto">
                   <script>
                     displayCart();
@@ -90,13 +90,7 @@
               </li>
             </ul>
         </div>
-    </nav>
-
-    <nav class="navbar navbar-expand d-flex justify-content-evenly" style="background-color: #94caf2;  overflow-x: scroll;">
-     <?php include "php/display_categories.php" ?>            
-    </nav>
-
-  
+    </nav>  
   </body>
 </html>
 

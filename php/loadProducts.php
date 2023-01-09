@@ -35,8 +35,8 @@ $i = 0;
 ?>
 <style>
 .parent {
-overflow: hidden;
-margin: 20px;
+    overflow: hidden;
+    margin: 20px;
 }
 .product-image {
     position: relative;
