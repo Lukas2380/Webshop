@@ -14,7 +14,7 @@
 </head>
 <body>
     <nav class="navbar sticky-top navbar-light navbar-expand justify-content-between ps-lg-5 pe-lg-5 ps-2 pe-2" style="background-color: #e3f2fd;">
-        <div class="col-lg-2 col-sm-4 me-md-1">
+        <div class="col-2 me-md-1">
           <a class="navbar-brand" href="index.php">
             <i class="bi bi-puzzle"> Home</i>
           </a>
@@ -22,7 +22,7 @@
 
         <div class="col-lg-6 col-sm-6">
           <div class="d-flex input-group" role="search">
-            <input class="form-control" id="searchInput" type="search" placeholder="Search for name or category" aria-label="Search" onkeydown="loadProducts(this.value)">
+            <input class="form-control" id="searchInput" type="search" placeholder="Search name or category" aria-label="Search" onkeydown="loadProducts(this.value)">
             <button class="btn btn-outline-dark" onclick="loadProducts(document.getElementById('searchInput').value)"><i class="bi bi-search"></i></button>
           </div>
         </div>
@@ -81,7 +81,7 @@
                   ?>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" style="width: 300px;">
-                <div id="cartItems" style="height: 700px;" class="overflow-auto">
+                <div id="cartItems" style="height: auto; max-height: 700px" class="overflow-auto">
                   <script>
                     displayCart();
                   </script>

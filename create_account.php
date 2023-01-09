@@ -91,6 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $query = "INSERT INTO Users (username, email, password, is_admin) VALUES ('$username', '$email', '$pw', '$is_admin')";
   mysqli_query($conn, $query);
 
+  echo $query;
   echo "Account sucessfully created!";
 }
 ?>

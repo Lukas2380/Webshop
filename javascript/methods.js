@@ -88,3 +88,10 @@ function displayCart(){
     xmlhttp.open("GET", "php/displayCart.php", true);
     xmlhttp.send();
 }
+
+function DeleteCartItems(){
+    var xmlhttp = new XMLHttpRequest();
+    alert("Here");
+    xmlhttp.open("GET", "php/deleteCartItems.php", true);
+    xmlhttp.send();
+}

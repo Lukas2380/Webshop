@@ -18,7 +18,7 @@ if(isset($_SESSION['username']))
     // Generate the list item
     echo "<li class='d-flex flex-column align-items-center'>";
     echo "<p class='text-center'>Total Price: $totalPrice<span>€</span></p>";
-    echo "<button class='btn btn-success'>Order now</button>";
+    echo "<a href='order.php'><button class='btn btn-success'>Order now</button></a>";
     echo "</li>";
     echo "<li><hr class='dropdown-divider'></li>";
 
@@ -74,5 +74,8 @@ if(isset($_SESSION['username']))
 
     // Close the database connection
     mysqli_close($conn);
+}
+else{
+    echo "<li style='text-align: center;'>Login to see your cart</li>";
 }
 ?>
