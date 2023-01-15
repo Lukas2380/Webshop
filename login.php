@@ -14,7 +14,7 @@ session_start();
 
     <h1 style="text-align: center;" class="mt-5">Login</h1>
 
-    <form method="post" action="login.php" class="mt-5">
+    <form method="post" action="login.php" class="mt-5" style="max-width: 500px; width: 70%;">
         <label for="username">Username:</label><br>
         <input type="username" id="username" name="username"><br>
         <label for="email">Email:</label><br>

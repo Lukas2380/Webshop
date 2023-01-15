@@ -11,7 +11,7 @@
 
   <h1 style="text-align: center;" class="mt-5">Create Account</h1>
 
-<form id="create_account_form" class="mt-5" onsubmit="return validateForm()" method="post" action="create_account.php">
+<form id="create_account_form" class="mt-5" style="max-width: 500px; width: 70%;" onsubmit="return validateForm()" method="post" action="create_account.php">
     <label for="username">Username:</label><br>
     <input type="username" id="username" name="username"><br><br>
     <label for="email">Email:</label><br>
