@@ -8,9 +8,12 @@
 </head>
 <body>
   <?php include "header.php"; ?>
-<form id="create_account_form" onsubmit="return validateForm()" method="post" action="create_account.php">
+
+  <h1 style="text-align: center;" class="mt-5">Create Account</h1>
+
+<form id="create_account_form" class="mt-5" onsubmit="return validateForm()" method="post" action="create_account.php">
     <label for="username">Username:</label><br>
-    <input type="text" id="username" name="username"><br><br>
+    <input type="username" id="username" name="username"><br><br>
     <label for="email">Email:</label><br>
     <input type="email" id="email" name="email"><br><br>
     <label for="password">Password:</label><br>
@@ -91,10 +94,55 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $query = "INSERT INTO Users (username, email, password, is_admin) VALUES ('$username', '$email', '$pw', '$is_admin')";
   mysqli_query($conn, $query);
 
-  echo $query;
-  echo "Account sucessfully created!";
+  echo "<script>alert('Account sucessfully created!'); location.href='login.php';</script>";
 }
 ?>
 
 </body>
 </html>
+
+
+<style>
+/* Style the form container */
+form {
+    width: 30em;
+    margin: auto;
+    padding: 20px;
+    background-color: #e3f2fd;
+    border-radius: 10px;
+}
+
+/* Style the labels */
+label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Style the inputs */
+input[type="username"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+</style>

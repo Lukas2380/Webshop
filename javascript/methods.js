@@ -1,9 +1,11 @@
 function add_to_cart(id, size) {
-
     switch (size){
         case "Small": size = 1; break;
         case "Medium": size = 2; break;
         case "Large": size = 3; break;
+        case "small": size = 1; break;
+        case "medium": size = 2; break;
+        case "large": size = 3; break;
     }
 
     var xmlhttp = new XMLHttpRequest();
@@ -12,10 +14,35 @@ function add_to_cart(id, size) {
         if (this.readyState == 4 && this.status == 200) {
             update_cart_items();
             displayCart();
+            displayOrderItems();
         }
     };
 
     xmlhttp.open("GET", "php/add_to_cart.php?id=" + id + "&size=" + size, true);
+    xmlhttp.send();
+}
+
+function remove_from_cart(id, size) {
+    switch (size){
+        case "Small": size = 1; break;
+        case "Medium": size = 2; break;
+        case "Large": size = 3; break;
+        case "small": size = 1; break;
+        case "medium": size = 2; break;
+        case "large": size = 3; break;
+    }
+
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            update_cart_items();
+            displayCart();
+            displayOrderItems();
+        }
+    };
+
+    xmlhttp.open("GET", "php/remove_from_cart.php?id=" + id + "&size=" + size, true);
     xmlhttp.send();
 }
 
@@ -89,9 +116,85 @@ function displayCart(){
     xmlhttp.send();
 }
 
-function DeleteCartItems(){
+function checkSubmit(){
+    alert (getElementById('totalprice').value);
+    alert ("hi");
+    if(getElementById('totalprice').value == ''){
+
+    }
+}
+
+function deleteCartItems(){
     var xmlhttp = new XMLHttpRequest();
-    alert("Here");
     xmlhttp.open("GET", "php/deleteCartItems.php", true);
+    xmlhttp.send();
+}
+
+function addComment(product_id, user_id){
+    var xmlhttp = new XMLHttpRequest();
+    
+    comment = document.getElementById('comment').value;
+    document.getElementById('comment').value = "";
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            displayComments(product_id);
+        }
+    };
+
+    xmlhttp.open("GET", "php/addComment.php?c=" + comment + "&p=" + product_id + "&u=" + user_id, true);
+    xmlhttp.send();
+}
+
+function displayComments(product_id){
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("comments").innerHTML = "";
+            document.getElementById("comments").innerHTML = this.responseText;
+        }
+    };
+
+    xmlhttp.open("GET", "php/displayComments.php?p=" + product_id, true);
+    xmlhttp.send();
+}
+
+function adminLoadCategories(){
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("categories").innerHTML = "";
+            document.getElementById("categories").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "php/adminLoadCategories.php", true);
+    xmlhttp.send();
+}
+
+function adminLoadProducts(){
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("products").innerHTML = "";
+            document.getElementById("products").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "php/adminLoadProducts.php", true);
+    xmlhttp.send();
+}
+
+function displayOrderItems(){
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("orderItems").innerHTML = "";
+            document.getElementById("orderItems").innerHTML = this.responseText;
+        }
+    };
+    xmlhttp.open("GET", "displayOrderItems.php", true);
     xmlhttp.send();
 }

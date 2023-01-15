@@ -12,11 +12,11 @@ session_start();
     
   <?php include 'header.php';?>
 
-  <h1 style="font-family: Freestyle Script; font-size: 80px; text-align: center;" class="mt-5">Lukas's best (and only) Puzzleshop</h1>
+  <h1 style="font-family: Freestyle Script; font-size: 80px; text-align: center;" class="mt-5 mx-2">Lukas's </span>Puzzleshop</h1>
 
   <?php include 'php/carousel.php'?>
   
-  <nav class="navbar navbar-expand d-flex justify-content-center flex-wrap sticky-offset my-5 h-auto w-75" style="align-items: center;margin-left: 12.5%;">
+  <nav class="navbar navbar-expand d-flex justify-content-center flex-wrap sticky-offset my-5 h-auto w-80" style="align-items: center;">
     <?php include "php/display_categories.php" ?>
     </nav>
 
@@ -35,5 +35,9 @@ session_start();
   .sticky-offset {
     top: 50px;
     height: 50px;
+}
+@font-face {
+    font-family: 'Freestyle Script';
+    src: url('font/FREESCPT.TTF');
 }
 </style>

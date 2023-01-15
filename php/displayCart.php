@@ -1,5 +1,10 @@
 <?php
 session_start();
+?>
+<head>
+    <script src="javascript\methods.js"></script>
+</head>
+<?php
 if(isset($_SESSION['username']))
 {
     include "connectDatabase.php";
@@ -15,10 +20,17 @@ if(isset($_SESSION['username']))
         }
     }
 
+    if($totalPrice == '')
+    {
+        $totalPrice = "0";
+    }
+
     // Generate the list item
     echo "<li class='d-flex flex-column align-items-center'>";
     echo "<p class='text-center'>Total Price: $totalPrice<span>€</span></p>";
     echo "<a href='order.php'><button class='btn btn-success'>Order now</button></a>";
+    echo "<br>";
+    echo "<a href='orders.php'><button class='btn btn-primary'>View orders</button></a>";
     echo "</li>";
     echo "<li><hr class='dropdown-divider'></li>";
 
@@ -46,19 +58,19 @@ if(isset($_SESSION['username']))
 
             if($item_id != $lastItem_id){
                 // Generate the list item
-                echo "<li class='dropdown-item'>";
+                echo "<li  onclick=\"location.href='product-details.php?id=$item_id';\" class='dropdown-item'>";
                 echo "<p class='item-name'>$item_name</p>";
                 echo "<div class='item-image'>";
                 echo "<img src='img/$item_link' alt='$item_name' style='width: 100%'>";
                 echo "</div>";
-                echo "<div class='item-details'>";
+                echo "<div class='item-details my-2'>";
                 echo "<span class='item-quantity'>$quantity x </span>";
-                echo "<span class='item-size'>$size_name</span>";
+                echo "<span class='item-size'> $size_name</span>";
                 echo "<span class='item-price'> $size_price<span>€</span></span>";
-
+                echo "</div>";
             }
             else{
-                echo "<div class='item-details'>";
+                echo "<div class='item-details my-2'>";
                 echo "<span class='item-quantity'>$quantity x </span>";
                 echo "<span class='item-size'>$size_name</span>";
                 echo "<span class='item-price'> $size_price<span>€</span></span>";

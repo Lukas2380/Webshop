@@ -63,12 +63,50 @@ session_start();
                     <button type="button" onclick="changeSize('Medium');" class="btn btn-primary">Medium</button>
                     <button type="button" onclick="changeSize('Large');" class="btn btn-primary">Large</button>
                 </div>
+
+                <div>
+                <br>
+                    <div>Small: 500 Pieces</div>
+                    <div>Small: 1000 Pieces</div>
+                    <div>Small: 2000 Pieces</div>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="container mt-5">
-        
+        <?php
+            if(isset($_SESSION['userid'])){
+                ?>
+                <h2>Leave a Comment</h2>
+                <br>
+                <div class="form-group">
+                    <label for="name">Name: <span id="name" name="name"><?php echo $_SESSION['username']?></span></label>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Comment:</label>
+                    <textarea class="form-control" id="comment" name="comment"></textarea>
+                </div>
+                <br>
+                <button class="btn btn-primary" onclick="addComment(<?php echo $product_id; ?>, <?php echo $_SESSION['userid']; ?>)">Submit</button>
+                <?php
+            }
+            else
+            {
+                echo "Login to leave a comment";
+            }
+        ?>
     </div>
+
+    <div class="container mt-5">
+        <h2>Comments</h2>
+        <br>
+        <div id="comments">
+            <script>
+                displayComments(<?php echo $product_id; ?>);
+            </script>
+        </div>
+    </div>
+
 </body>
 </html>

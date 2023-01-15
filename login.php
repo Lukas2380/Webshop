@@ -11,7 +11,10 @@ session_start();
 </head>
 <body>
     <?php include "header.php";?>
-    <form method="post" action="login.php">
+
+    <h1 style="text-align: center;" class="mt-5">Login</h1>
+
+    <form method="post" action="login.php" class="mt-5">
         <label for="username">Username:</label><br>
         <input type="username" id="username" name="username"><br>
         <label for="email">Email:</label><br>
@@ -73,10 +76,52 @@ function verify_credentials($username, $email, $pw) {
     }
     else{
         $output = false;
-    }
-    
+    }   
 
     return $output;
 }
-
 ?>
+<style>
+/* Style the form container */
+form {
+    width: 30em;
+    margin: auto;
+    padding: 20px;
+    background-color: #e3f2fd;
+    border-radius: 10px;
+}
+
+/* Style the labels */
+label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Style the inputs */
+input[type="username"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+</style>
