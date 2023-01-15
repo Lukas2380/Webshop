@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
+    <link rel="stylesheet" href="style\form.css">
 </head>
 <body>
   <?php include "header.php"; ?>
@@ -20,8 +21,8 @@
     <input type="password" id="password" name="password"><br><br>
     <label for="confirm_password">Confirm Password:</label><br>
     <input type="password" id="confirm_password" name="confirm_password"><br><br>
-    <label for="admin">Admin?</label>
-    <input type="checkbox" id="admin" name="admin"><br><br>
+    <!-- <label for="admin">Admin?</label>
+    <input type="checkbox" id="admin" name="admin"><br><br> -->
     <input type="submit" value="Create Account">
 </form> 
 
@@ -77,7 +78,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $email = $_POST['email'];
   $pw = $_POST['password'];
   $username = $_POST['username'];
-  $is_admin = $_POST['admin'];
+  //$is_admin = $_POST['admin'];
+  $is_admin = 0;
 
   $pw = password_hash($pw, PASSWORD_DEFAULT);
 
@@ -100,49 +102,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 </body>
 </html>
-
-
-<style>
-/* Style the form container */
-form {
-    width: 30em;
-    margin: auto;
-    padding: 20px;
-    background-color: #e3f2fd;
-    border-radius: 10px;
-}
-
-/* Style the labels */
-label {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
-    display: block;
-}
-
-/* Style the inputs */
-input[type="username"], input[type="password"], input[type="email"] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-}
-
-/* Style the submit button */
-input[type="submit"] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
-</style>

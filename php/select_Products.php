@@ -8,7 +8,7 @@
         $q = "where p.name like '%$q%' or c.name = '$q'";
     }
 
-    // Query to retrieve the products from the database
+    // Get the products from the database
     $sql = "SELECT p.id as 'id', p.name, p.description, c.name as 'category', p.link FROM Products p join Category c on p.category_id = c.id ".$q;
     $result = mysqli_query($conn, $sql);
 

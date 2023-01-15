@@ -8,6 +8,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="style\form.css">
 </head>
 <body>
     <?php include "header.php";?>
@@ -28,10 +29,8 @@ session_start();
 
 <?php
 
-// Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // Get the email and password from the form
     $username = $_POST['username'];
     $email = $_POST['email'];
     $pw = $_POST['password'];
@@ -40,12 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (verify_credentials($username, $email, $pw)) {
         echo "<script>location.href='index.php';</script>";
     } else {
-        // Show an error message
         echo 'Invalid email or password';
     }
 }
 
-// A function to verify the user's credentials
 function verify_credentials($username, $email, $pw) {
   
     include "php/connectDatabase.php";
@@ -81,47 +78,3 @@ function verify_credentials($username, $email, $pw) {
     return $output;
 }
 ?>
-<style>
-/* Style the form container */
-form {
-    width: 30em;
-    margin: auto;
-    padding: 20px;
-    background-color: #e3f2fd;
-    border-radius: 10px;
-}
-
-/* Style the labels */
-label {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
-    display: block;
-}
-
-/* Style the inputs */
-input[type="username"], input[type="password"], input[type="email"] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-}
-
-/* Style the submit button */
-input[type="submit"] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
-</style>

@@ -3,7 +3,6 @@ session_start();
 
 $user_id = $_SESSION['userid'];
 
-// Connect to the database
 include "php/connectDatabase.php";
 
 if(!$_SESSION['is_admin']){
@@ -13,14 +12,12 @@ else{
     $sql = "SELECT id, user_id, address, city, zip, total_price, date FROM Orders";
 }
 
-// Retrieve all the orders for the current user
+// Retrieve all the orders
 $result = mysqli_query($conn, $sql);
 
-// Initialize an array to store the orders
 $orders = array();
 
 if (mysqli_num_rows($result) > 0) {
-    // Process the orders
     while ($row = mysqli_fetch_assoc($result)) {
         $order = array(
             'id' => $row['id'],
@@ -34,11 +31,8 @@ if (mysqli_num_rows($result) > 0) {
         $orders[] = $order;
     }
 }
-
-// Close the database connection
 mysqli_close($conn);
 
-// Display the header
 include('header.php');
 
 ?>

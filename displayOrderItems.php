@@ -12,7 +12,6 @@ $result = mysqli_query($conn, "SELECT P.id, C.quantity, P.name, S.name AS size_n
 $items = array();
 
 if (mysqli_num_rows($result) > 0) {
-    // Process the items in the cart
     while ($row = mysqli_fetch_assoc($result)) {
         $item = array(
             'id' => $row['id'],

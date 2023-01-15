@@ -19,13 +19,11 @@ if(isset($_SESSION['username']))
             $totalPrice += ($row['quantity'] * $row['price']);
         }
     }
-
     if($totalPrice == '')
     {
         $totalPrice = "0";
     }
 
-    // Generate the list item
     echo "<li class='d-flex flex-column align-items-center'>";
     echo "<p class='text-center'>Total Price: $totalPrice<span>€</span></p>";
     echo "<a href='order.php'><button class='btn btn-success'>Order now</button></a>";
@@ -34,30 +32,30 @@ if(isset($_SESSION['username']))
     echo "</li>";
     echo "<li><hr class='dropdown-divider'></li>";
 
-    // Fetch the items from the cart table
+    // Get all Cart items from the database
     $result = mysqli_query($conn, "SELECT * FROM Cart where user_id = $user_id");
 
-    // Generate the list items
     if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
+            // Put all the outputs from the database into variable to work with them more easily
             $item_id = $row['item_id'];
             $size_id = $row['size_id'];
             $quantity = $row['quantity'];
 
-            // Get the name of the item
+            // Get the item values
             $item_result = mysqli_query($conn, "SELECT name, link FROM Products WHERE id=$item_id");
             $item_row = mysqli_fetch_assoc($item_result);
             $item_name = $item_row['name'];
             $item_link = $item_row['link'];
 
-            // Get the name of the size
+            // Get the size values
             $size_result = mysqli_query($conn, "SELECT name, price FROM Size WHERE id=$size_id");
             $size_row = mysqli_fetch_assoc($size_result);
             $size_name = $size_row['name'];
             $size_price = $size_row['price'];
 
+            // To prevent duplicate items just for diffrent sizes
             if($item_id != $lastItem_id){
-                // Generate the list item
                 echo "<li  onclick=\"location.href='product-details.php?id=$item_id';\" class='dropdown-item'>";
                 echo "<p class='item-name'>$item_name</p>";
                 echo "<div class='item-image'>";
@@ -69,6 +67,7 @@ if(isset($_SESSION['username']))
                 echo "<span class='item-price'> $size_price<span>€</span></span>";
                 echo "</div>";
             }
+            // If there is a diffrent size for the same item, just add the details
             else{
                 echo "<div class='item-details my-2'>";
                 echo "<span class='item-quantity'>$quantity x </span>";
@@ -83,8 +82,7 @@ if(isset($_SESSION['username']))
     }
 
     echo "<script>document.getElementById('price').innerHTML = '$priceSum';</script>";
-
-    // Close the database connection
+    
     mysqli_close($conn);
 }
 else{

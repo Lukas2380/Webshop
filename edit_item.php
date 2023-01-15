@@ -2,6 +2,14 @@
     session_start();
     include 'php/connectDatabase.php';
     include 'header.php';
+
+    // Get the Categories 
+    $query = "SELECT name from Category";
+    $result = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $categories[] = $row['name'];
+    }
+
     $id = $_GET['id'];
     $table = $_GET['t'];
     $query = "SELECT * FROM $table WHERE id = '$id'";
@@ -20,7 +28,7 @@
     <form action="php/update_item.php?t=<?php echo $table ?>" method="post">
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">   
         <div>
-            <label for="name">Name:</label>
+            <label for="name">Name:</label><br><br>
             <input type="text" id="name" name="name" value="<?php echo $row['name']; ?>">
         </div>
         <?php 
@@ -30,6 +38,14 @@
             <br>
             <textarea style="resize: auto; width: 500px; height: 150px;" id="description" name="description"><?php echo $row['description']; ?></textarea>
         </div>
+        <select name="category_select" id="category_select">
+            <?php 
+            $i = 0;
+            foreach ($categories as $category){
+                $i++;
+                echo "<option value='$i'>$category</option>";
+            }?>
+        </select><br><br>
         <?php }?>
         <div class="mt-3">
             <input type="submit" value="Update Item">

@@ -10,7 +10,6 @@ $i = 0;
         foreach ($products as $product) {
             $id = $product['id'];
             $name = $product['name'];
-            /* $price = $product['price']; */
             $description = $product['description'];
             $link = $product['link'];
 

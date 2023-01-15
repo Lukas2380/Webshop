@@ -1,7 +1,6 @@
 <?php
   include "connectDatabase.php";
 
-  // Fetch the categories from the database
   $result = mysqli_query($conn, "SELECT * FROM Category");
 
   echo "<div><button class='m-2 btn btn-outline-dark' onclick='loadProducts(\"\")'>All</button></div>";

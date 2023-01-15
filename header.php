@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="javascript\methods.js"></script>
-  <?php #include "php/update_cart_items.php"?>
 </head>
 <body>
     <nav class="navbar sticky-top navbar-light navbar-expand justify-content-between ps-lg-5 pe-lg-5 ps-2 pe-2 w-100" style="background-color: #e3f2fd;">

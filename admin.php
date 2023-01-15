@@ -1,6 +1,5 @@
 <?php 
     session_start();
-
     include "header.php";
 ?>
 
@@ -10,13 +9,13 @@
     <title>Admin Page</title>
 </head>
 <body>
-    <h1 class="mt-5">Admin Page</h1>
+    <h1 class="mt-5 text-center">Admin Page</h1>
 
-    <div id="categories">
+    <div id="categories" class="container">
         <script>adminLoadCategories()</script>
     </div>
 
-    <div id="products">
+    <div id="products" class="container">
         <script>adminLoadProducts()</script>
     </div>
 </body>
