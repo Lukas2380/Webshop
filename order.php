@@ -18,12 +18,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     include "php/connectDatabase.php";
 
+    $user_id = $_SESSION['userid'];
+    $total_price = $_REQUEST['p'];
     $address = $_POST['address'];
     $city = $_POST['city'];
     $zip = $_POST['zip'];
 
     // Insert the order into the database
     $sql = "INSERT INTO Orders (user_id, address, city, zip, total_price, date) VALUES ($user_id, '$address', '$city', '$zip', $total_price, NOW())";
+    echo $sql;
     mysqli_query($conn, $sql);
 
     if (mysqli_affected_rows($conn) > 0) {
