@@ -56,8 +56,8 @@ session_start();
                 <div>
                 <br>
                     <div>Small: 500 Pieces</div>
-                    <div>Small: 1000 Pieces</div>
-                    <div>Small: 2000 Pieces</div>
+                    <div>Medium: 1000 Pieces</div>
+                    <div>Large: 2000 Pieces</div>
                 </div>
             </div>
         </div>
