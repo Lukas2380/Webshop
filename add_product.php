@@ -20,8 +20,8 @@ if (isset($_POST['submit'])) {
     $category_select = $_POST['category_select'];
 
     // Insert the new product into the specified table
-    $query = "INSERT INTO Products (name, description, category_id) VALUES ('$product_name', '$product_description', $category_select)";
-    echo $query;
+    $query = "INSERT INTO Products (name, description, category_id) SELECT '$product_name', '$product_description', id FROM Category WHERE name = '$category_select'";
+    //echo $query;
     mysqli_query($conn, $query);
 
     mysqli_close($conn);
@@ -46,10 +46,8 @@ if (isset($_POST['submit'])) {
         <label for="category_select">Category:</label><br><br>
         <select name="category_select" id="category_select">
             <?php 
-            $i = 0;
             foreach ($categories as $category){
-                $i++;
-                echo "<option value='$i'>$category</option>";
+                echo "<option value='$category'>$category</option>";
             }?>
         </select><br><br>
         <input type="submit" name="submit" value="Add Product">

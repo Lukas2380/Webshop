@@ -146,7 +146,7 @@ function addComment(product_id, user_id){
     xmlhttp.send();
 }
 
-function displayComments(product_id){
+function displayComments(product_id, sort){
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.onreadystatechange = function() {
@@ -156,7 +156,7 @@ function displayComments(product_id){
         }
     };
 
-    xmlhttp.open("GET", "php/displayComments.php?p=" + product_id, true);
+    xmlhttp.open("GET", "php/displayComments.php?p=" + product_id + "&sortBy=" + sort, true);
     xmlhttp.send();
 }
 
@@ -196,5 +196,20 @@ function displayOrderItems(){
         }
     };
     xmlhttp.open("GET", "displayOrderItems.php", true);
+    xmlhttp.send();
+}
+
+function rateComment(prodid, id, rating){
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("rating").innerHTML = "";
+            document.getElementById("rating").innerHTML = this.responseText;
+            displayComments(prodid);
+        }
+    };
+    xmlhttp.open("GET", "php/rateComment.php?c=" + id + "&r=" + rating, true);
+    alert("php/rateComment.php?c=" + id + "&r=" + rating);
     xmlhttp.send();
 }

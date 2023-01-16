@@ -40,10 +40,8 @@
         </div>
         <select name="category_select" id="category_select">
             <?php 
-            $i = 0;
             foreach ($categories as $category){
-                $i++;
-                echo "<option value='$i'>$category</option>";
+                echo "<option value='$category'>$category</option>";
             }?>
         </select><br><br>
         <?php }?>

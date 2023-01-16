@@ -77,7 +77,7 @@ session_start();
                     <textarea class="form-control" id="comment" name="comment"></textarea>
                 </div>
                 <br>
-                <button class="btn btn-primary" onclick="addComment(<?php echo $product_id; ?>, <?php echo $_SESSION['userid']; ?>)">Submit</button>
+                <button class="btn btn-primary" onclick="addComment(<?php echo $product_id; ?>, <?php echo $_SESSION['userid']; ?>)">Post</button>
                 <?php
             }
             else
@@ -90,6 +90,14 @@ session_start();
     <div class="container mt-5">
         <h2>Comments</h2>
         <br>
+        <div id="sort" class="btn-group mb-4">
+            <button class="btn btn-light" id="sortByDate" onclick="displayComments(<?php echo $product_id; ?>, 'dateASC')">Sort by Date (Newest first)</button>
+            <button class="btn btn-light" id="sortByDate" onclick="displayComments(<?php echo $product_id; ?>, 'dateDESC')">Sort by Date (Oldest first)</button>
+            <button class="btn btn-light" id="sortByUser" onclick="displayComments(<?php echo $product_id; ?>, 'userASC')">Sort by User (A-Z)</button>
+            <button class="btn btn-light" id="sortByUser" onclick="displayComments(<?php echo $product_id; ?>, 'userDESC')">Sort by User (Z-A)</button>
+            <button class="btn btn-light" id="sortByRating" onclick="displayComments(<?php echo $product_id; ?>, 'ratingASC')">Sort by Rating (Highest first)</button>
+            <button class="btn btn-light" id="sortByRating" onclick="displayComments(<?php echo $product_id; ?>, 'ratingDESC')">Sort by Rating (Lowest first)</button>
+        </div>
         <div id="comments">
             <script>
                 displayComments(<?php echo $product_id; ?>);
