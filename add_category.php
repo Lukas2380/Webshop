@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
 <body>
     <h1 class="mt-5">Add Category</h1>
 
-    <form action="" method="post">
+    <form method="post">
     <label for="category_name">Category Name:</label><br><br>
     <input type="text" id="category_name" name="category_name" required><br><br>
     <input type="submit" name="submit" value="Add Category">
