@@ -116,14 +116,6 @@ function displayCart(){
     xmlhttp.send();
 }
 
-function checkSubmit(){
-    alert (getElementById('totalprice').value);
-    alert ("hi");
-    if(getElementById('totalprice').value == ''){
-
-    }
-}
-
 function deleteCartItems(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", "php/deleteCartItems.php", true);
@@ -210,6 +202,5 @@ function rateComment(prodid, id, rating){
         }
     };
     xmlhttp.open("GET", "php/rateComment.php?c=" + id + "&r=" + rating, true);
-    alert("php/rateComment.php?c=" + id + "&r=" + rating);
     xmlhttp.send();
 }
